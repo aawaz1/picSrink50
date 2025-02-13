@@ -5,11 +5,14 @@ import Image from "next/image";
 
 
 export default function Home() {
+    const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+console.log("API URL:", apiUrl);
+
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const handleFileChange = (e) => {
-        console.log(e.target.files[0])
+        
         setFile(e.target.files[0]);
     };
 
@@ -24,8 +27,7 @@ export default function Home() {
     }
     
     // Example usage:
-    const fileSizeInBytes = 137772;
-    console.log(formatFileSize(fileSizeInBytes)); // Output: "134.60 KB"
+    
     
 
     const handleSubmit = async (e) => {
@@ -37,7 +39,7 @@ export default function Home() {
         formData.append("file", file);
 
         try {
-          const response = await fetch("http://localhost:8080/api/compress-image", { 
+          const response = await fetch(`${apiUrl}/api/compress-image`, { 
             method: "POST",
             body: formData,
         });
@@ -49,7 +51,7 @@ export default function Home() {
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = "compressed.jpg";
+            a.download = `${file?.name}[50Kb].jpg`;
             document.body.appendChild(a);
             a.click();
             a.remove();
