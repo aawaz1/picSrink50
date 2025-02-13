@@ -9,12 +9,19 @@ export default function Home() {
 console.log("API URL:", apiUrl);
 
     const [file, setFile] = useState(null);
+    const [imageSrc, setImageSrc] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const handleFileChange = (e) => {
-        
-        setFile(e.target.files[0]);
+        const selectedFile = e.target.files[0]; // Store the file in a variable
+    
+        if (selectedFile) {
+            setFile(selectedFile); // Update state
+            const objectURL = URL.createObjectURL(selectedFile); // Create URL
+            setImageSrc(objectURL); // Update image source
+        }
     };
+    
 
     function formatFileSize(bytes) {
         if (bytes < 1024) {
@@ -36,6 +43,7 @@ console.log("API URL:", apiUrl);
 
         setLoading(true);
         const formData = new FormData();
+        console.log(file , "files")
         formData.append("file", file);
 
         try {
@@ -61,6 +69,7 @@ console.log("API URL:", apiUrl);
         } finally {
             setLoading(false);
             setFile(null);
+            setImageSrc(null);
         }
     };
 
@@ -87,7 +96,11 @@ console.log("API URL:", apiUrl);
         <h3 className="text-2xl text-center font-semibold text-gray-800 mb-4">Upload Your Image</h3>
         <p className="text-gray-600 mb-4">Easily compress your images to less than 50KB without losing quality.</p>
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 border border-teal-400 border-dashed p-8 justify-center items-center">
-            <Image className="" alt="extension" src={extension} width={100}/>
+         { imageSrc ?    <div>
+      
+       <> <div> <img src={imageSrc} alt="Preview" className="rounded-md" style={{ maxWidth: "200px", marginTop: "10px" }} /> </div> </> 
+    </div> : <Image className="" alt="extension" src={extension} width={100}/> 
+         }
         
             <input
   type="file"
@@ -100,12 +113,14 @@ console.log("API URL:", apiUrl);
 
 {
     file ? null : (
+        <>
         <label
   htmlFor="file-upload"
   className="cursor-pointer  px-12 py-4 border border-gray-300 rounded-full mb-4 text-center bg-teal-600 text-white hover:bg-teal-700"
 >
   Upload File
 </label>
+</>
     )
 }
 
