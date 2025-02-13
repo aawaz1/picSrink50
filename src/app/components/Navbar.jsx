@@ -50,7 +50,7 @@ export default function Navbar() {
     <div className="">
     <div className="mx-auto flex  w-full bg-green-100  justify-between  py-3 text-md">
       {/* left side  */}
-      <section ref={animationParent} className="flex w-full px-12 justify-start  items-center">
+      <section ref={animationParent} className="flex w-full px-2 md:px-12 justify-start  items-center">
         {/* logo */}
         <div className="flex items-center space-x-3">
               <Link href="/" className="flex items-center space-x-3">
