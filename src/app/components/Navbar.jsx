@@ -10,7 +10,7 @@ import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { IoMdArrowBack } from "react-icons/io";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import logo from '../../../../frontend/public/logo.png'
+import logo from '../../../public/logo.png'
 
 
 const navItems = [
