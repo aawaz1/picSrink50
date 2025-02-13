@@ -13,14 +13,18 @@ console.log("API URL:", apiUrl);
     const [loading, setLoading] = useState(false);
 
     const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0]; // Store the file in a variable
+        if (!e.target.files.length) return;
+    
+        const selectedFile = e.target.files[0];
     
         if (selectedFile) {
-            setFile(selectedFile); // Update state
-            const objectURL = URL.createObjectURL(selectedFile); // Create URL
-            setImageSrc(objectURL); // Update image source
+            e.target.value = ""; // Reset input to allow selecting the same file again
+            setFile(selectedFile);
+            const objectURL = URL.createObjectURL(selectedFile);
+            setImageSrc(objectURL);
         }
     };
+    
     
 
     function formatFileSize(bytes) {
