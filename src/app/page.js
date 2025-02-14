@@ -81,28 +81,28 @@ console.log("API URL:", apiUrl);
     
         <div className="  grid  mt-8 p-8 grid-cols-1 md:grid-cols-2">
             <section className="flex flex-col items-center justify-start  p-8 max-w-3xl mx-auto text-center">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">Converting Images made simple</h2>
+      <h2 className=" text-xl md:text-3xl font-bold text-gray-900 mb-4">Converting Images made simple</h2>
     
       
     
 
-      <div className="flex flex-col items-start justify-start gap-3 mt-6 text-gray-700 text-lg">
+      <div className="flex flex-col items-start justify-start gap-3 mt-3 text-gray-700 text-lg">
         
 
 
-        <p>✅Shrink your images, not the quality!</p>
-        <p>✅ Fast & efficient image compression – keep it under 50KB!</p>
-        <p>✅Optimize, compress, and save space effortlessly</p>
+        <p className="text-sm md:text-md ">✅Shrink your images, not the quality!</p>
+        <p className="text-sm md:text-md ">✅Fast & efficient image compression – keep it under 50KB!</p>
+        <p className="text-sm md:text-md ">✅Optimize, compress, and save space effortlessly</p>
       </div>
     </section>
             <div className="flex flex-col items-center max-w-3xl mx-auto ">
             <div className="bg-green-50 p-6 rounded-xl shadow-md w-full">
-        <h3 className="text-2xl text-center font-semibold text-gray-800 mb-4">Upload Your Image</h3>
-        <p className="text-gray-600 mb-4">Easily compress your images to less than 50KB without losing quality.</p>
+        <h3 className="text-xl md:text-3xl text-center font-semibold text-gray-800 mb-4">Upload Your Image</h3>
+        <p className="text-gray-600 text-sm md:text-md  mb-4">Easily compress your images to less than 50KB without losing quality.</p>
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 border border-teal-400 border-dashed p-8 justify-center items-center">
          { imageSrc ?    <div>
       
-       <> <div> <img src={imageSrc} alt="Preview" className="rounded-md" style={{ maxWidth: "200px", marginTop: "10px" }} /> </div> </> 
+       <> <div> <img src={imageSrc} alt="Preview" className="rounded-md md:max-w-[200px] max-w-[100px]" /> </div> </> 
     </div> : <Image className="" alt="extension" src={extension} width={100}/> 
          }
         
@@ -128,8 +128,8 @@ console.log("API URL:", apiUrl);
     )
 }
 
-{file && (<div className=" border border-teal-300 p-2"><p className="text-gray-700">File Name: {file?.name}</p>
-    <p className="text-gray-700 ">File Size: {formatFileSize(file?.size)}</p>
+{file && (<div className=" border border-teal-300 p-2"><p className=" text-sm md:text-base text-gray-700 ">File Name: {file?.name}</p>
+    <p className="text-gray-700 text-sm md:text-base ">File Size: {formatFileSize(file?.size)}</p>
 </div>)}
 
       {

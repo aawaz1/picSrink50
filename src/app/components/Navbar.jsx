@@ -55,7 +55,7 @@ export default function Navbar() {
         <div className="flex items-center space-x-3">
               <Link href="/" className="flex items-center space-x-3">
                 <div className=" rounded-full  flex items-center justify-center">
-                <Image className="rounded-full border border-green-800" src={logo} alt="logo" width={75}/>
+                <Image className="rounded-full border border-green-800 w-[50px] md:w-[80px]" src={logo} alt="logo" />
                 </div>
                
               </Link>
@@ -119,7 +119,7 @@ export default function Navbar() {
 function MobileNav( {closeSideMenu}) {
   return (
     <div className="fixed bg-green-100 z-50 left-0 top-0 flex h-full w-full justify-end xl:hidden">
-      <div className="h-full w-[65%]  bg-primary  px-4 py-4">
+      <div className="h-full w-[65%]  bg-primary   py-2">
         <section className="flex justify-end">
           <AiOutlineClose
             onClick={closeSideMenu}
