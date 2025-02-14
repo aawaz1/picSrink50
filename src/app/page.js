@@ -90,9 +90,9 @@ console.log("API URL:", apiUrl);
         
 
 
-        <p className="text-sm md:text-md ">✅Shrink your images, not the quality!</p>
-        <p className="text-sm md:text-md ">✅Fast & efficient image compression – keep it under 50KB!</p>
-        <p className="text-sm md:text-md ">✅Optimize, compress, and save space effortlessly</p>
+        <p className="text-md md:text-base ">✅Shrink your images, not the quality!</p>
+        <p className="text-md md:text-base ">✅Fast & efficient image compression – keep it under 50KB!</p>
+        <p className="text-md md:text-base ">✅Optimize, compress, and save space effortlessly</p>
       </div>
     </section>
             <div className="flex flex-col items-center max-w-3xl mx-auto ">
@@ -120,7 +120,7 @@ console.log("API URL:", apiUrl);
         <>
         <label
   htmlFor="file-upload"
-  className="cursor-pointer  px-12 py-4 border border-gray-300 rounded-full mb-4 text-center bg-teal-600 text-white hover:bg-teal-700"
+  className="cursor-pointer text-sm md:text-base  px-12 py-4 border border-gray-300 rounded-full mb-4 text-center bg-teal-600 text-white hover:bg-teal-700"
 >
   Upload File
 </label>
@@ -134,7 +134,7 @@ console.log("API URL:", apiUrl);
 
       {
         file && (
-            <button disabled={loading} className="bg-teal-600 mt-2 rounded-full text-white px-12 py-4 hover:bg-teal-700 transition">
+            <button disabled={loading} className="bg-teal-600 mt-2 rounded-full text-white text-sm md:text-base px-12 py-4 hover:bg-teal-700 transition">
             {
                 loading ? "Converting..." : "Convert"
         }

@@ -118,15 +118,16 @@ export default function Navbar() {
 
 function MobileNav( {closeSideMenu}) {
   return (
-    <div className="fixed bg-green-100 z-50 left-0 top-0 flex h-full w-full justify-end xl:hidden">
-      <div className="h-full w-[65%]  bg-primary   py-2">
-        <section className="flex justify-end">
+    <div className="fixed inset-0 z-50 flex xl:hidden">
+        <div className="absolute inset-0 bg-black/50" onClick={closeSideMenu}></div>
+      <div className="fixed right-0 top-0 h-full w-[60%] bg-green-100 py-2 shadow-lg">
+        <section className="flex  items-end justify-end">
           <AiOutlineClose
             onClick={closeSideMenu}
             className="cursor-pointer text-4xl text-black"
           />
         </section>
-        <div className="flex flex-col gap-2 text-base text-white transition-all">
+        <div className="flex flex-col gap-4 p-2 text-base text-white transition-all">
           {navItems.map((d , i) => (
             <SingleNavItem
               key={i}
