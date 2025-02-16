@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
     const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-console.log("API URL:", apiUrl);
+
 
     const [file, setFile] = useState(null);
     const [imageSrc, setImageSrc] = useState(null);
@@ -47,7 +47,7 @@ console.log("API URL:", apiUrl);
 
         setLoading(true);
         const formData = new FormData();
-        console.log(file , "files")
+       
         formData.append("file", file);
 
         try {
